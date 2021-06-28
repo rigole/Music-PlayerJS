@@ -47,6 +47,23 @@ h3 {
     top: -50px;
     left: 50px;
 }
+/* Progress */
+.progress-container{
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 40px 20px;
+    height: 4px;
+    width: 90%;
+}
+.progress{
+    background: #242323;
+    border-radius: 5px;
+    height: 100%;
+    /* change this to show progress */
+    width: 66% ;
+    transition: width 0.1s linear;
+}
 /* Media Query" iphone (Vertical) */
 @media screen and (max-width: 376px){
     .player-container{
