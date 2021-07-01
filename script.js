@@ -93,3 +93,17 @@ function prevSong() {
 // Event Listeners to change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+
+// Update Progress Bar and time
+function updateProgressBar(e) {
+    if (isPlaying){
+        const { duration, currentTime } = e.srcElement;
+        console.log(duration, currentTime );
+        // Update progress bar width
+
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+    }
+}
+
+music.addEventListener('timeupdate',updateProgressBar)
