@@ -106,22 +106,30 @@ function updateProgressBar(e) {
         // Update progress bar width
         const progressPercent = (currentTime / duration) * 100;
         progress.style.width = `${progressPercent}%`;
+        const durationMinutes = Math.floor(duration / 60)
+        let durationSeconds = Math.floor(duration % 60);
 
 
-       /* if (durationsSeconds){
-            durationEl.textContent = `${durationMinutes}:${durationsSeconds}`;
-        }*/
+        if(durationSeconds < 10){
+            durationSeconds = `0${durationSeconds}`;
+        }
+        currentTimeEl.textContent = `${durationMinutes}:${durationSeconds}`;
+
+
+        // Delay switching duration Element to avoid NaN
+        if (durationSeconds){
+            durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
+        }
+
         // Calculate display for duration
         const currentMinutes = Math.floor(currentTime / 60);
-
         let currentSeconds = Math.floor(currentTime % 60);
         if(currentSeconds < 10){
             currentSeconds = `0${currentSeconds}`;
         }
         currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
-    }
-    // Delay switching duration Element to avoid NaN
 
+    }
 }
 
 music.addEventListener('timeupdate',updateProgressBar)
