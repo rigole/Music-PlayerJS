@@ -143,3 +143,6 @@ function setProgressBar(e) {
 }
 
 progressContainer.addEventListener('click',setProgressBar);
+
+music.addEventListener('ended', nextSong);
+
