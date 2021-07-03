@@ -132,4 +132,14 @@ function updateProgressBar(e) {
     }
 }
 
-music.addEventListener('timeupdate',updateProgressBar)
+music.addEventListener('timeupdate',updateProgressBar);
+
+function setProgressBar(e) {
+     const width = this.clientWidth;
+     const clickX = e.offsetX;
+     const { duration } = music;
+     music.currentTime = (clickX / width) * duration;
+
+}
+
+progressContainer.addEventListener('click',setProgressBar);
